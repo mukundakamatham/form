@@ -5,16 +5,25 @@ import validator from "validator";
 
 const StepTwo = ({ nextStep, handleFormData, prevStep, values }) => {
   const [error, setError] = useState(false);
-
+  
   const submitFormData = (e) => {
     e.preventDefault();
 
-    if ( validator.isEmpty(values.email)) {
+    if ( validator.isEmpty(values.email)||ValidateEmail(values.email)) {
       setError(true);
     } else {
       nextStep(1);
     }
   };
+  function ValidateEmail(mail) 
+  {
+   if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail))
+    {
+      return (false)
+    }
+      alert("You have entered an invalid email address!")
+      return (true)
+  }
   return (
     <>
       <Card style={{ marginTop: 100 }}>
