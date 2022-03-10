@@ -55,7 +55,6 @@ const settoupdate=(id)=>{
 value = e;
     }else{
       value=e.target.value
-     // console.log(e,"a");
     }
 
     setFormData(prevState => ({
@@ -98,7 +97,6 @@ value = e;
           </Container>
         </div>
       );
-    // case 2 to show stepTwo form passing nextStep, prevStep, and handleInputData as handleFormData method as prop and also formData as value to the fprm
     case 2:
       return (
         <div className="App">
