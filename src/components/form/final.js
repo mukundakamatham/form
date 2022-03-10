@@ -1,18 +1,23 @@
 import React,{useState,useEffect} from "react";
 import { Button, Card } from "react-bootstrap";
 import {app }from "../../utils/request";
-const Final = ({ settostart }) => {
+const Final = ({ settoupdate,settostart }) => {
 const [data,setData] = useState([]);
 useEffect(() =>{
   getData();
 },[]);
 const handleclick=async (id)=>{
 await app.delete(`/${id}`)
-await  app.get("/").then((res)=>setData(res.data)).then(()=>console.log(data));
+await  app.get("/").then((res)=>setData(res.data));
 
 }
 const handleform=()=>{
   settostart()
+}
+const handleclicked=async (id)=>{
+
+  await  app.get(`${id}`).then((res)=>settoupdate(res.data));
+  
 }
 const getData =async ()=>{
 await  app.get("/").then((res)=>setData(res.data)).then(()=>console.log(data));
@@ -51,7 +56,7 @@ await  app.get("/").then((res)=>setData(res.data)).then(()=>console.log(data));
                 </p>
               </Card.Body>
               <Card.Footer>
-<Button onClick={()=>handleclick(e._id)}>delete form</Button>
+<Button onClick={()=>handleclick(e._id)}>delete form</Button> <Button onClick={()=>handleclicked(e._id)}>update form</Button>
                 </Card.Footer>
             </Card>
     ))}

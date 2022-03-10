@@ -6,7 +6,6 @@ import {app }from "../../utils/request";
 
 const StepSix = ({ nextStep, handleFormData, prevStep, values }) => {
   const [error, setError] = useState(false);
-
   const submitFormData = async (e) => {
     e.preventDefault();
 
@@ -14,9 +13,12 @@ const StepSix = ({ nextStep, handleFormData, prevStep, values }) => {
       setError(true);
     } else {
       console.log(values)
-      
-  app.post("/",values).then((res) => {console.log(res.data);}).then(() => {nextStep(1)})
+      if(values._id){
+        app.patch(`/${values._id}`,values).then((res) => {console.log(res.data);}).then(() => {nextStep(1)})
 
+      }else{
+  app.post("/",values).then((res) => {console.log(res.data);}).then(() => {nextStep(1)})
+      }
     }
   };
   return (
@@ -34,6 +36,7 @@ const StepSix = ({ nextStep, handleFormData, prevStep, values }) => {
               <FloatingLabel controlId="floatingTextarea2" label="Comments">
     <Form.Control
       as="textarea"
+      defaultValue={values.Comments}
       placeholder="Leave a comment here"
       onInput={handleFormData("Comments")}
       style={{ height: '100px' }}

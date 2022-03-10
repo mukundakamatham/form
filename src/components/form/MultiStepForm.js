@@ -2,6 +2,7 @@
 import { useState } from "react";
 
 import { Container, Row, Col } from "react-bootstrap";
+import {app }from "../../utils/request";
 
 import StepOne from "./form1";
 import StepTwo from "./form2";
@@ -37,6 +38,12 @@ email: "",
 fitness_level:"",
 Comments:""})
 };
+
+const settoupdate=(id)=>{
+  setstep(1);
+  console.log(id.item)
+  setFormData(id.item)
+}
   const nextStep = (i) => {
     setstep(step + i);
   };
@@ -161,7 +168,7 @@ value = e;
     default:
       return (
         <div >
-                               <Final settostart={settostart} values={formData}  /> 
+                               <Final settoupdate={settoupdate} settostart={settostart} values={formData}  /> 
 
         </div>
       );
