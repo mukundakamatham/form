@@ -40,14 +40,14 @@ const [step, setstep] = useState(0);
 value = e;
     }else{
       value=e.target.value
-      console.log(e,"a");
+     // console.log(e,"a");
     }
 
     setFormData(prevState => ({
       ...prevState,
       [input]: value
   }));
-  console.log(formData);
+ // console.log(formData);
   }
   const handleInputData1 = input => e => {
     

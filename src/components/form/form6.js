@@ -1,18 +1,20 @@
 import React, { useState } from "react";
 import { Form, Card, Button,FloatingLabel } from "react-bootstrap";
 import validator from "validator";
+import {app }from "../../utils/request";
 
 
 const StepSix = ({ nextStep, handleFormData, prevStep, values }) => {
   const [error, setError] = useState(false);
 
-  const submitFormData = (e) => {
+  const submitFormData = async (e) => {
     e.preventDefault();
 
     if ( validator.isEmpty(values.Comments)) {
       setError(true);
     } else {
-      nextStep(1);
+await app.post("/",{values}).then((res) => {console.log(res);}).then(() => {nextStep(1);})
+      
     }
   };
   return (
