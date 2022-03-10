@@ -25,7 +25,9 @@ const [step, setstep] = useState(0);
     fitness_level:"",
     Comments:""
   })
-
+const settostart=()=>{
+setstep(0)
+};
   const nextStep = (i) => {
     setstep(step + i);
   };
@@ -47,7 +49,7 @@ value = e;
       ...prevState,
       [input]: value
   }));
- // console.log(formData);
+  console.log(formData);
   }
   const handleInputData1 = input => e => {
     
@@ -150,7 +152,7 @@ value = e;
     default:
       return (
         <div >
-                               <Final values={formData}  /> 
+                               <Final settostart={settostart} values={formData}  /> 
 
         </div>
       );

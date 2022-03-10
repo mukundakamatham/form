@@ -13,8 +13,10 @@ const StepSix = ({ nextStep, handleFormData, prevStep, values }) => {
     if ( validator.isEmpty(values.Comments)) {
       setError(true);
     } else {
-await app.post("/",{values}).then((res) => {console.log(res);}).then(() => {})
-nextStep(1)
+      console.log(values)
+      
+  app.post("/",values).then((res) => {console.log(res.data);}).then(() => {nextStep(1)})
+
     }
   };
   return (
