@@ -18,7 +18,7 @@ const [step, setstep] = useState(0);
     Name: "",
     dob:"" ,
     Gender:"Gender",
-    age: "",
+   
     experience:"",
     experience_level:"",
     email: "",
@@ -26,7 +26,16 @@ const [step, setstep] = useState(0);
     Comments:""
   })
 const settostart=()=>{
-setstep(0)
+setstep(0);
+setFormData({ Name: "",
+dob:"" ,
+Gender:"Gender",
+
+experience:"",
+experience_level:"",
+email: "",
+fitness_level:"",
+Comments:""})
 };
   const nextStep = (i) => {
     setstep(step + i);

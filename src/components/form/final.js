@@ -56,9 +56,20 @@ await  app.get("/").then((res)=>setData(res.data)).then(()=>console.log(data));
             </Card>
     ))}
     {data.length===0?
-    <Card style={{ marginTop: 100, textAlign: "center" }}>
-      <Card.Text>nothing to display  to fill the form </Card.Text>
-      <Button onClick={handleform}>click me</Button> </Card>:null
+    <Card className="text-center"  style={{ marginTop: 100, textAlign: "center" }}>
+      
+      
+      <Card.Body>
+      
+      <Card.Text>
+      nothing to display  to fill the form  
+      </Card.Text>
+      <Button onClick={handleform}>click me</Button> 
+
+    </Card.Body>
+  </Card>
+      
+      :null
     }
     </>
   );
