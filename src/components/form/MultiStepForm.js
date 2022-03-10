@@ -9,8 +9,8 @@ import StepThree from "./form3";
 import StepFour from "./form4";
 import StepFive from "./form5";
 import StepSix from "./form6";
-import {Home} from "./home"
-import Final from "./final"
+import {Home} from "./home";
+import Final from "./final";
 function MultiStepForm(){
 const [step, setstep] = useState(0);
 //var date=new Date()

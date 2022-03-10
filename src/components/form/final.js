@@ -1,8 +1,15 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import { Card } from "react-bootstrap";
+import {app }from "../../utils/request";
 
 const Final = ({ values }) => {
-
+const [data,setData] = useState();
+useEffect(() =>{
+  getData();
+},[]);
+const getData =async ()=>{
+await  app.get("/").then((res)=>console.log(res))
+}
     //destructuring the object from values
   const { Name,Gender,Comments, experience, experience_level,fitness_level, email,dob } = values;
   return (
