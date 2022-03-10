@@ -2,7 +2,6 @@
 import { useState } from "react";
 
 import { Container, Row, Col } from "react-bootstrap";
-import {app }from "../../utils/request";
 
 import StepOne from "./form1";
 import StepTwo from "./form2";
@@ -14,7 +13,6 @@ import {Home} from "./home";
 import Final from "./final";
 function MultiStepForm(){
 const [step, setstep] = useState(0);
-//var date=new Date()
   const [formData, setFormData] = useState({
     Name: "",
     dob:"" ,
@@ -41,7 +39,6 @@ Comments:""})
 
 const settoupdate=(id)=>{
   setstep(1);
-  console.log(id.item)
   setFormData(id.item)
 }
   const nextStep = (i) => {
@@ -114,7 +111,6 @@ value = e;
           </Container>
         </div>
       );
-      // Only formData is passed as prop to show the final value at form submit
     case 3:
       return (
         <div className="App">
@@ -168,7 +164,7 @@ value = e;
     default:
       return (
         <div >
-                               <Final settoupdate={settoupdate} settostart={settostart} values={formData}  /> 
+         <Final settoupdate={settoupdate} settostart={settostart} values={formData}  /> 
 
         </div>
       );
